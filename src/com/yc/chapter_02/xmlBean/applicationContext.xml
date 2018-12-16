@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!--Spring会调用默认的构造器来创建bean-->
+    <bean id="sgtPeppers3" class="com.yc.chapter_02.xmlBean.SgtPeppers3"/>
+
+    <!--构造器注入：第一种方法-->
+    <!--<bean id="cdPlayer3" class="com.yc.chapter_02.xmlBean.CDPlayer3">-->
+        <!--<constructor-arg ref="sgtPeppers3"/>-->
+    <!--</bean>-->
+    <!--第二种方法:-->
+    <bean id="cdPlayer3" class="com.yc.chapter_02.xmlBean.CDPlayer3"
+    c:compactDisc3-ref="sgtPeppers3"/>
+
+
+
+
+    <!--注入字面量-->
+    <!--<bean id="blankDisc" class="com.yc.chapter_02.xmlBean.BlankDisc"-->
+        <!--c:artist="The Beatles"-->
+        <!--c:title="Sgt Peppers's Lonely Hearts Club Band!"/>-->
+    <!--
+        说明：c标签的缺点：目前不能装配集合
+    -->
+    <!--<bean id="blankDisc" class="com.yc.chapter_02.xmlBean.BlankDisc">-->
+        <!--<constructor-arg value="Sgt Peppers's Lonely Hearts Club Band!"/>-->
+        <!--<constructor-arg value="The Beatles"/>-->
+        <!--<constructor-arg>-->
+            <!--<list>-->
+                <!--<value>Pretty Boy</value>-->
+                <!--<value>See you again</value>-->
+                <!--<value>Fixing a Hole</value>-->
+            <!--</list>-->
+        <!--</constructor-arg>-->
+    <!--</bean>-->
+
+    <!--利用util标签来简化集合的装配-->
+    <util:list id="tracks">
+        <value>Pretty Boy</value>
+        <value>See you again</value>
+        <value>Fixing a Hole</value>
+    </util:list>
+    <bean id="blankDisc" class="com.yc.chapter_02.xmlBean.BlankDisc">
+        <constructor-arg value="Sgt Peppers's Lonely Hearts Club Band!"/>
+        <constructor-arg value="The Beatles"/>
+        <constructor-arg ref="tracks"/>
+    </bean>
+
+
+</beans>
