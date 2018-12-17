@@ -1,7 +1,6 @@
 package com.yc.chapter_04.xml_aop;
 
 
-import com.yc.chapter_02.xmlBean.BlankDisc;
 import com.yc.chapter_02.xmlBean.CompactDisc3;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -27,6 +26,11 @@ public class MyTest {
         System.out.println(trackCounter2.getPlayCount(1));
         System.out.println(trackCounter2.getPlayCount(2));
         System.out.println(trackCounter2.getPlayCount(3));
+
+        System.out.println("=======================================");
+
+        Encoreable2 de = (Encoreable2) performance2;
+        de.performEncore();
 
     }
 }

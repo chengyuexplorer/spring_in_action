@@ -67,6 +67,15 @@
     </aop:config>
 
 
+    <!--AOP：通过切面引入新的功能-->
+    <aop:config>
+        <aop:aspect>
+            <aop:declare-parents types-matching="com.yc.chapter_04.xml_aop.Performance2+"
+                                 implement-interface="com.yc.chapter_04.xml_aop.Encoreable2"
+                                 default-impl="com.yc.chapter_04.xml_aop.DefaultEncoreable2"/>
+        </aop:aspect>
+    </aop:config>
+
 
 
 </beans>
