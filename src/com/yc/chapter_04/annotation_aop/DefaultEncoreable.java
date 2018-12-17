@@ -1,4 +1,4 @@
-package com.yc.chapter_04.annotation;
+package com.yc.chapter_04.annotation_aop;
 
 /**
  * Encoreable接口的默认实现

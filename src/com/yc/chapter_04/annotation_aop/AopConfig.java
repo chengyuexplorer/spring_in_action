@@ -1,4 +1,4 @@
-package com.yc.chapter_04.annotation;
+package com.yc.chapter_04.annotation_aop;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.yc.chapter_04.annotation;
+package com.yc.chapter_04.annotation_aop;
 
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.DeclareParents;
@@ -9,6 +9,6 @@ import org.aspectj.lang.annotation.DeclareParents;
 @Aspect
 public class EncoreableIntroducer {
 
-    @DeclareParents(value = "com.yc.chapter_04.annotation.Performance+",defaultImpl = DefaultEncoreable.class)
+    @DeclareParents(value = "com.yc.chapter_04.annotation_aop.Performance+",defaultImpl = DefaultEncoreable.class)
     private static Encoreable encoreable;
 }

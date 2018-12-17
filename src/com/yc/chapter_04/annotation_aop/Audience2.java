@@ -1,4 +1,4 @@
-package com.yc.chapter_04.annotation;
+package com.yc.chapter_04.annotation_aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -16,7 +16,7 @@ public class Audience2 {
     /**
      * 定义切点
      */
-    @Pointcut("execution(* com.yc.chapter_04.annotation.Performance.perform2(..))")
+    @Pointcut("execution(* com.yc.chapter_04.annotation_aop.Performance.perform2(..))")
     public void performance2(){}
 
     /**

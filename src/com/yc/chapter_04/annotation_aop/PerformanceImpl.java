@@ -1,4 +1,4 @@
-package com.yc.chapter_04.annotation;
+package com.yc.chapter_04.annotation_aop;
 
 /**
  * 目标对象的实现类

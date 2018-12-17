@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/aop/spring-context.xsd
+       ">
+
+    <!--注册bean-->
+    <bean id="audience2" class="com.yc.chapter_04.xml_aop.Audience2"/>
+    <bean id="audience3" class="com.yc.chapter_04.xml_aop.Audience3"/>
+
+    <bean id="performanceImpl2" class="com.yc.chapter_04.xml_aop.PerformanceImpl2"/>
+
+    <!--AOP配置-->
+    <aop:config>
+        <aop:pointcut id="myPointcut" expression="execution(* com.yc.chapter_04.xml_aop.Performance2.perform())"/>
+        <aop:aspect ref="audience2">
+            <!--前置通知-->
+            <aop:before method="silenceCellPhones" pointcut-ref="myPointcut"/>
+            <aop:before method="takeSeats" pointcut-ref="myPointcut"/>
+
+            <!--后置通知-->
+            <aop:after-returning method="applause" pointcut-ref="myPointcut"/>
+
+            <!--异常通知-->
+            <aop:after-throwing method="demandRefund" pointcut-ref="myPointcut"/>
+
+        </aop:aspect>
+    </aop:config>
+
+    <!--AOP配置-环绕通知-->
+    <aop:config>
+        <aop:pointcut id="myPointcut2" expression="execution(* com.yc.chapter_04.xml_aop.Performance2.perform2())"/>
+        <aop:aspect ref="audience3">
+            <aop:around method="watchPerformance" pointcut-ref="myPointcut2"/>
+        </aop:aspect>
+    </aop:config>
+
+
+
+
+    <!--AOP：为通知传递参数-->
+    <bean id="blankDisc" class="com.yc.chapter_02.xmlBean.BlankDisc">
+        <property name="title" value="Sgt Peppers's Lonely Hearts Club Band!"/>
+        <property name="artist" value="The Beatles"/>
+        <property name="tracks">
+            <list>
+                <value>Pretty Boy</value>
+                <value>See you again</value>
+                <value>Fixing a Hole</value>
+            </list>
+        </property>
+    </bean>
+    <bean id="trackCounter2" class="com.yc.chapter_04.xml_aop.TrackCounter2"/>
+
+    <aop:config>
+        <aop:pointcut id="myPointcut3" expression="execution(* com.yc.chapter_02.xmlBean.CompactDisc3.playTrack(int)) and args(trackNumber)"/>
+        <aop:aspect ref="trackCounter2">
+            <aop:before method="countTrack" pointcut-ref="myPointcut3"/>
+        </aop:aspect>
+    </aop:config>
+
+
+
+
+</beans>

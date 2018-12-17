@@ -1,4 +1,4 @@
-package com.yc.chapter_04.annotation;
+package com.yc.chapter_04.annotation_aop;
 
 import org.aspectj.lang.annotation.*;
 
@@ -13,7 +13,7 @@ public class Audience {
     /**
      * 定义切点
      */
-    @Pointcut("execution(* com.yc.chapter_04.annotation.Performance.perform(..))")
+    @Pointcut("execution(* com.yc.chapter_04.annotation_aop.Performance.perform(..))")
     public void performance(){}
 
     /**
