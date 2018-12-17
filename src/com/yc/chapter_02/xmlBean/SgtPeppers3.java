@@ -12,4 +12,9 @@ public class SgtPeppers3 implements CompactDisc3 {
     public void play() {
         System.out.println("Playing " + title + " by " + artist);
     }
+
+    @Override
+    public void playTrack(int trackNumber) {
+
+    }
 }

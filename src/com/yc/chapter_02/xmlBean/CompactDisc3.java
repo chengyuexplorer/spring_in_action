@@ -8,4 +8,6 @@ public interface CompactDisc3 {
      * 播放
      */
     void play();
+
+    void playTrack(int trackNumber);
 }

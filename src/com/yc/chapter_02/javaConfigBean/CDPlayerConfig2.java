@@ -1,6 +1,5 @@
 package com.yc.chapter_02.javaConfigBean;
 
-import com.yc.chapter_02.autoWireBean.MediaPlayer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
